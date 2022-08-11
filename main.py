@@ -34,22 +34,33 @@ def f_score(data,predict):
     fp = 0
     tn = 0
     fn = 0
+    
     for i in range(len(actual)):
+        
+       
+
         if predict[i] == '5' and actual[i] == '5':
             tp = tp + 1
+   
         if predict[i] == '5' and actual[i] == '1':
+
             fp = fp + 1
+           
         if predict[i] == '1' and actual[i] == '1':
             tn = tn + 1
+            
         if predict[i] == '1' and actual[i] == '5':
             fn = fn + 1
-
+            
+  
     precision = float(tp)/float(tp+fp)
     recall = float(tp)/float(tp+fn)
+
     f_score_p = float(2.0)*precision*recall/(precision+recall)
 
     precision = float(tn)/float(tn+fn)
     recall = float(tn)/(fp+tn)
+
     f_score_n = float(2.0)*precision*recall/(precision+recall)    
 
     return(f_score_p, f_score_n)
